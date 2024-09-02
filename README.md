@@ -3,6 +3,8 @@
 The ProductSlider component is a versatile image slider designed for React  applications. It allows you to display a set of images in a customizable carousel format. You can enable magnification, navigation buttons, and adjust various styling options.
 this component can be used in e-commerce applications to display products and mockups.
 
+![screenshot](https://ibb.co/pw22SL1 "component")
+
 **Installation**
 To use the ProductSlider component in your project, follow these steps:
 
