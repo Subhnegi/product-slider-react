@@ -32,7 +32,7 @@ The ProductSlider component accepts the following props:
 
 ```
 width (optional): The width of the slider (default: “700px”).
-height (optional): The height of the slider (default: “80%”).
+height (optional): The height of the slider (default: “100%”).
 magnify (optional): Enable image magnification (default: true).
 images: An array of image objects with an img property containing the image URL.*upto 14 images if tilePostion is "bottom" else 10*
 magnifierSize (optional): Size of the magnifier (default: 200).
