@@ -20,7 +20,7 @@ import { Magnifier } from 'product-slider-react';
 Usage
 ProductSlider
 The ProductSlider component accepts the following props:
-
+```
 width (optional): The width of the slider (default: “700px”).
 height (optional): The height of the slider (default: “80%”).
 magnify (optional): Enable image magnification (default: true).
@@ -35,8 +35,11 @@ imgBg (optional): Background color for the main image (default: “#b8b7b4”).
 imgRadius (optional): Border radius for the main image (default: “20px”).
 tileRadius (optional): Border radius for thumbnail tiles (default: “10px”).
 tilePosition (optional): Position of thumbnail tiles (“bottom” | “right” | “left”, default: “bottom”).
+```
+
 Example usage:
 
+```
 <ProductSlider
   width="800px"
   height="60vh"
@@ -47,6 +50,7 @@ Example usage:
   ]}
   // Other props...
 />
+```
 
 Magnifier
 The Magnifier component is used internally by the ProductSlider component for image magnification. You can also use it independently if needed.
