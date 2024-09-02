@@ -1,6 +1,6 @@
 {
   "name": "product-slider-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React slider component for showing product images to be used in e-commerce application",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
