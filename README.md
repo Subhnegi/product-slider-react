@@ -1,25 +1,35 @@
 # product-slider-react
-ProductSlider Component
+**ProductSlider Component**
 The ProductSlider component is a versatile image slider designed for React  applications. It allows you to display a set of images in a customizable carousel format. You can enable magnification, navigation buttons, and adjust various styling options.
 this component can be used in e-commerce applications to display products and mockups.
 
-Installation
+**Installation**
 To use the ProductSlider component in your project, follow these steps:
 
 Install the package via npm or yarn:
+
+```
 npm install product-slider-component
-# or
+```
+### or
+
+```
 yarn add product-slider-component
 
+```
 Import the component into your React application:
+```
 import { ProductSlider } from 'product-slider-react';
-
+```
 if you just want to use magnifier for any image 
+```
 import { Magnifier } from 'product-slider-react';
+```
 
-Usage
-ProductSlider
+**Usage**
+
 The ProductSlider component accepts the following props:
+
 ```
 width (optional): The width of the slider (default: “700px”).
 height (optional): The height of the slider (default: “80%”).
@@ -37,7 +47,7 @@ tileRadius (optional): Border radius for thumbnail tiles (default: “10px”).
 tilePosition (optional): Position of thumbnail tiles (“bottom” | “right” | “left”, default: “bottom”).
 ```
 
-Example usage:
+**Example usage**:
 
 ```
 <ProductSlider
@@ -52,25 +62,27 @@ Example usage:
 />
 ```
 
-Magnifier
+# Magnifier
 The Magnifier component is used internally by the ProductSlider component for image magnification. You can also use it independently if needed.
 
-Props for Magnifier:
-
+**Props for Magnifier:**
+```
 imgUrl: The URL of the image to magnify.
 magnifierSize (optional): Size of the magnifier (default: 200).
 zoomLevel (optional): Zoom level for the magnified image (default: 3).
 BorderRadius (optional): Border radius for the magnifier (default: “50”).
-Example usage:
+```
 
+**Example usage:**
+```
 <Magnifier
   imgUrl="image.jpg"
   magnifierSize={150}
   zoomLevel={2}
   BorderRadius="30"
 />
-
-License
+```
+**License**
 This component is released under the MIT License. Feel free to use it in your projects!
 
 **Message**: 
