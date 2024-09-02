@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import Magnifier from './Magnifier';
-import "./productSlider.css"
+import React, { useState, useEffect } from "react";
+import Magnifier from "./Magnifier";
+import "./productSlider.css";
 
 interface Props {
     width?: string;
@@ -16,13 +16,28 @@ interface Props {
     imgBg?: string;
     imgRadius?: string;
     tileRadius?: string;
-    tilePosition?: 'bottom' | 'right' | 'left';
-  }
+    tilePosition?: "bottom" | "right" | "left";
+}
 
-const ProductSlider: React.FC<Props> = ({ width = "700px", height = "80%", magnify = true, images, magnifierSize, zoomLevel, MagnifierBorderRadius, prevIcon = "<", nextIcon = ">", buttonBg="#b8b7b4", imgBg="#b8b7b4", imgRadius="20px", tileRadius="10px", tilePosition="bottom"}) => {
+const ProductSlider: React.FC<Props> = ({
+    width = "700px",
+    height = "100%",
+    magnify = true,
+    images,
+    magnifierSize,
+    zoomLevel,
+    MagnifierBorderRadius,
+    prevIcon = "<",
+    nextIcon = ">",
+    buttonBg = "#b8b7b4",
+    imgBg = "#b8b7b4",
+    imgRadius = "20px",
+    tileRadius = "10px",
+    tilePosition = "bottom",
+}) => {
     const [photoIndex, setPhotoIndex] = useState(0);
     const [transitioning, setTransitioning] = useState(false);
-    const [direction, setDirection] = useState('');
+    const [direction, setDirection] = useState("");
     const mainPhoto = images[photoIndex].img;
     useEffect(() => {
         if (transitioning) {
@@ -35,40 +50,171 @@ const ProductSlider: React.FC<Props> = ({ width = "700px", height = "80%", magni
 
     const handleClickPrev = () => {
         setTransitioning(true);
-        setDirection('left');
-        setPhotoIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+        setDirection("left");
+        setPhotoIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
     };
 
     const handleClickNext = () => {
         setTransitioning(true);
-        setDirection('right');
-        setPhotoIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        setDirection("right");
+        setPhotoIndex((prevIndex) =>
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
     };
     return (
-        <div className={`flex ${tilePosition==="bottom"? "flex-col":( tilePosition==="right"?"flex-row":"flex-row-reverse")}`} style={{ width: `${width}`, height: `${height}` }}>
-            <div className='w-full  flex justify-center items-center overflow-hidden border-2 border-gray-400 relative ' style={{background:`${imgBg}`, borderRadius:`${imgRadius}`}}>
-                {
-                    magnify ?
-                        <div className={`w-full transition-transform duration-500 ${transitioning ? (direction === 'left' ? 'slideLeft' : 'slideRight') : ''}`} >
-                            <Magnifier imgUrl={mainPhoto} magnifierSize={magnifierSize} zoomLevel={zoomLevel} BorderRadius={MagnifierBorderRadius} />
-                        </div> 
-                        : 
-                        <img src={mainPhoto} alt="product-img" className={`w-full h-[80vh] transition-transform duration-500 ${transitioning ? (direction === 'left' ? 'slideLeft' : 'slideRight') : ''}`} />
-                }
-                <button className='absolute left-1 rounded-full  font-semibold w-10 h-10 p-2 text-white flex justify-center items-center' onClick={handleClickPrev}  style={{background:`${buttonBg}`}}>{prevIcon}</button>
-                <button className='absolute right-1 rounded-full font-semibold w-10 h-10 p-2 text-white flex justify-center items-center' onClick={handleClickNext} style={{background:`${buttonBg}`}}>{nextIcon}</button>
+        <div
+            style={{
+                display: "flex",
+                flexDirection:
+                    tilePosition === "bottom"
+                        ? "column"
+                        : tilePosition === "right"
+                        ? "row"
+                        : "row-reverse",
+                width: `${width}`,
+                height: `${height}`,
+            }}
+        >
+            <div
+                style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    overflow: "hidden",
+                    border: "2px solid #ccc",
+                    background: imgBg,
+                    borderRadius: imgRadius,
+                    position: "relative",
+                }}
+            >
+                {magnify ? (
+                    <div
+                        style={{
+                            width: "100%",
+                            animation: transitioning ? 
+                                    direction==='left'?
+                                    'slideLeft 0.25s forwards'
+                                    :'slideRight 0.25s forwards' : 'none',
+                        }}
+                    >
+                        <Magnifier
+                            imgUrl={mainPhoto}
+                            magnifierSize={magnifierSize}
+                            zoomLevel={zoomLevel}
+                            BorderRadius={MagnifierBorderRadius}
+                        />
+                    </div>
+                ) : (
+                    <img
+                        src={mainPhoto}
+                        alt="product-img"
+                        style={{
+                            width: "100%",
+                            height: "80vh",
+                            animation: transitioning ? 
+                                    direction==='left'?
+                                    'slideLeft 0.25s forwards'
+                                    :'slideRight 0.25s forwards' : 'none',
+                        }}
+                    />
+                )}
+                <button
+                    style={{
+                        position: "absolute",
+                        left: "1rem",
+                        borderRadius: "50%",
+                        fontWeight: "600",
+                        width: "2.5rem",
+                        height: "2.5rem",
+                        padding: "0.5rem",
+                        color: "white",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        background: buttonBg,
+                        border: "none",
+                    }}
+                    onClick={handleClickPrev}
+                >
+                    {prevIcon}
+                </button>
+                <button
+                    style={{
+                        position: "absolute",
+                        right: "1rem",
+                        borderRadius: "50%",
+                        fontWeight: "600",
+                        width: "2.5rem",
+                        height: "2.5rem",
+                        padding: "0.5rem",
+                        color: "white",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        background: buttonBg,
+                        border: "none",
+                    }}
+                    onClick={handleClickNext}
+                >
+                    {nextIcon}
+                </button>
             </div>
-            <div className={`${tilePosition!=="bottom" ? "w-1/4" : "p-4"}`}>
-                <ul className= "flex h-full overflow-hidden flex-wrap justify-evenly p-4 gap-2">
-                    {images.slice(0,tilePosition==="bottom" ? 14 : 10).map((value, index) => (
-                        <li className={`${tilePosition ==="bottom" ? "basis-[12%] sm:basis-[10%]" : " basis-[60%] sm:basis-[40%]"} cursor-pointer`} key={index} onClick={() => {
-                            setTransitioning(true)
-                            index < photoIndex ? setDirection('right') : setDirection('left')
-                            setPhotoIndex(index)
-                        }}>
-                            <img src={value.img} className='h-full object-contain rounded-md' style={{borderRadius:`${tileRadius}`}}/>
-                        </li>
-                    ))}
+            <div
+                style={{
+                    width: tilePosition !== "bottom" ? "25%" : "auto",
+                    padding: "1rem",
+                    display: tilePosition === "bottom" ? "block" :"flex" ,
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
+                <ul
+                    style={{
+                        display: "flex",
+                        height:"auto",
+                        overflow: "hidden",
+                        flexWrap: "wrap",
+                        gap: "0.5rem",
+                        listStyle: "none",
+                        justifyContent: "space-evenly",
+                        paddingLeft: "0"
+                    }}
+                >
+                    {images
+                        .slice(0, tilePosition === "bottom" ? 14 : 10)
+                        .map((value, index) => (
+                            <li
+                                style={{
+                                    width:
+                                        tilePosition === "bottom"
+                                            ? "12%"
+                                            : "40%",
+                                    aspectRatio: "1/1",
+                                    cursor: "pointer",
+                                }}
+                                key={index}
+                                onClick={() => {
+                                    setTransitioning(true);
+                                    index < photoIndex
+                                        ? setDirection("right")
+                                        : setDirection("left");
+                                    setPhotoIndex(index);
+                                }}
+                            >
+                                <img
+                                    src={value.img}
+                                    alt="tileImage"
+                                    style={{
+                                        borderRadius: `${tileRadius}`,
+                                        objectFit: "contain",
+                                        height: "100%",
+                                    }}
+                                />
+                            </li>
+                        ))}
                 </ul>
             </div>
         </div>
