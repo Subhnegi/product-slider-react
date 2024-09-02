@@ -1,0 +1,50 @@
+{
+  "name": "product-slider-react",
+  "version": "1.0.0",
+  "description": "React slider component for showing product images to be used in e-commerce application",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "test",
+    "rollup": "rollup -c --bundleConfigAsCjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Subhnegi/product-slider-react.git"
+  },
+  "keywords": [
+    "React",
+    "slider",
+    "product",
+    "carousel",
+    "mockup",
+    "e-commerce",
+    "commerce",
+    "nextjs",
+    "reactjs",
+    "product-slider",
+    "product-carousel",
+    "images-slider",
+    "magnifier"
+  ],
+  "author": "Subham Negi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Subhnegi/product-slider-react/issues"
+  },
+  "homepage": "https://github.com/Subhnegi/product-slider-react#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.3.5",
+    "react": "^18.3.1",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.7.0",
+    "typescript": "^5.5.4"
+  }
+}
